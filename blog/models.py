@@ -6,6 +6,15 @@ class Blog(models.Model):
     pubdate = models.DateTimeField()
     image = models.ImageField(upload_to='images/blog/')
     body = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+    def summary(self):
+        return self.body[:200]
+
+    def pubdate_pretty(self):
+        return self.pubdate.strftime('%b %e %Y') #https://strftime.org/
 # Create a blog models
 # Title
 #Publication Date
